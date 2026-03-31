@@ -83,13 +83,18 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DBNAME'),
-        'HOST': os.environ.get('DBHOST'),
-        'USER': os.environ.get('DBUSER'),
-        'PASSWORD': os.environ.get('DBPASS'),
+        'NAME': os.environ.get('AZURE_POSTGRESQL_DATABASE'),
+        'HOST': os.environ.get('AZURE_POSTGRESQL_HOST'),
+        'USER': os.environ.get('AZURE_POSTGRESQL_USERNAME'),
+        'PASSWORD': os.environ.get('AZURE_POSTGRESQL_PASSWORD'),
+        'PORT': os.environ.get('AZURE_POSTGRESQL_PORT', '5432'),
+        'OPTIONS': {
+            'sslmode': os.environ.get('AZURE_POSTGRESQL_SSL', 'require')
+        }
     }
 }
 
