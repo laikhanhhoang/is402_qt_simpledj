@@ -32,6 +32,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://is402-toydjapp-cqcxapcqa5hkbpbu.eastasia-01.azurewebsites.net",
+]
+
 
 # Application definition
 
